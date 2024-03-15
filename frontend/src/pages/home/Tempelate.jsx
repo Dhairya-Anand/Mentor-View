@@ -7,20 +7,20 @@ import { FaUserFriends } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 export default function Tempelate({ children }){
-  const [navigation, setNavigation] = useState(localStorage.getItem('sideNav'));
+  const [navigation, setNavigation] = useState(() => {
+    return localStorage.getItem("sideNav") || "my-students";
+  });
 
   const navigate = useNavigate();
+
   const handleNavigation = (nav) => {
     setNavigation(nav);
-    localStorage.setItem('sideNav', nav);
+    localStorage.setItem("sideNav", nav);
     navigate(`/home/${nav}`);
   };
 
   useEffect(() => {
-    function firstNavigation() {
-      handleNavigation(localStorage.getItem("sideNav"));
-    }
-    firstNavigation();
+    handleNavigation(navigation);
   }, []);
 
   return (
