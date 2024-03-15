@@ -1,0 +1,98 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  /* Tab bar styles */
+  .tab-bar {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-bottom: 30px;
+  }
+  
+.tab-bar button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #f0f0f0;
+    color: rgb(74, 73, 73);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .tab-bar button.active {
+    background-color: #f69042;
+    color: #fff;
+  }
+  
+  /* Marksheet styles  */
+  .student-marks{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .student-marks p{
+    font-size: large;
+    padding: 10px 50px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .student-marks-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .student-marks-btn button {
+    width: 100px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #f69042;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 10px;
+  }
+
+  .edit-popup {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Edit popup title styles */
+  .edit-popup h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  /* Input field styles */
+  .edit-popup input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Submit Button */
+  .submit-btn{
+    width: 100%;
+    margin: 25px 0px;
+    text-align: center;
+  }
+
+  .submit-btn button{
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #f69042;
+  }
