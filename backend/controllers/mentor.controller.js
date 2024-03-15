@@ -94,7 +94,7 @@ const removeStudent = async (req, res) => {
   }
 };
 
-const submitAdmin = async (req, res) => {
+const submit = async (req, res) => {
   try {
     const { mentorId } = req.body;
     const mentor = await Mentor.findById(mentorId);
@@ -125,7 +125,7 @@ const submitAdmin = async (req, res) => {
 };
 
 module.exports = {
-  submitAdmin,
+  submit,
   removeStudent,
   addStudents,
 };

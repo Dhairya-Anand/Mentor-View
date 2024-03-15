@@ -3,9 +3,9 @@ const mentorController = require("../controllers/mentor.controller");
 
 // POST apis
 router.post("/addstudents", mentorController.addStudents);
-router.post("/submit", mentorController.submitAdmin);
+router.post("/submit", mentorController.submit);
 
-// PUT apis
+// DELETE apis
 router.delete("/removestudent", mentorController.removeStudent);
 
 module.exports = router;
