@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-const API_URL = "http://localhost:5000/api/";
+const API_URL = "https://mentor-view-hwet.onrender.com/api/";
 
 async function fetchAllStudents(){
     try {
