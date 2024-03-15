@@ -1,6 +1,5 @@
 const Mentor = require("../models/mentor.model");
 const Student = require("../models/student.model");
-const Marks = require("../models/marks.model");
 
 const addStudents = async (req, res) => {
   try {
@@ -88,7 +87,6 @@ const removeStudent = async (req, res) => {
       { $pull: { students: studentId } },
       { new: true }
     ).populate("students");
-    await Marks.deleteMany({ students: studentId });
 
     return res.status(200).json(response.students);
   } catch (error) {
