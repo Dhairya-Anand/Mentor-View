@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { BiUserPlus, BiUserMinus } from "react-icons/bi";
 import "./myStudents.css"
 import { fetchMyStudents, fetchRemoveStudent, fetchSaveChanges, fetchSubmitChanges} from "./services/myStudents.services"
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 function MyStudents() {
   const [activeTab, setActiveTab] = useState("");
@@ -21,6 +24,28 @@ function MyStudents() {
     }
     fetchData();
   }, []);
+
+  const generatePDF = async (studentData) => {
+    const docDefinition = {
+      content: [
+        { text: "Student report", style: "header" },
+        { text: "Name: " + studentData.name },
+        { text: "Viva: " + (studentData.viva ? studentData.viva : 0)},
+        { text: "Execution: " + (studentData.execution ? studentData.execution : 0)},
+        { text: "ideation: " + (studentData.ideation ? studentData.ideation : 0)},
+        { text: "Total marks: " + studentData.totalMarks},
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+          margin: [0, 0, 0, 10],
+        },
+      },
+    };
+
+    pdfMake.createPdf(docDefinition).download(studentData.name + "_report.pdf");
+  };
   
   const handleTabChange = (name) => {
     setActiveTab(name);
@@ -93,6 +118,10 @@ function MyStudents() {
       }
       const data = await fetchSubmitChanges();
       if(!data) return;
+      const students = data.mentor.students;
+      students.map((student) => (
+        generatePDF(student)
+      ));
       toast.success(data.message);
     } catch (error) {
       console.log(error);
