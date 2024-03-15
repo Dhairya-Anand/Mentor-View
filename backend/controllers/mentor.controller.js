@@ -112,6 +112,7 @@ const submit = async (req, res) => {
       });
     }
     mentor.isSubmitted = true;
+    await mentor.populate("students");
     await mentor.save();
     return res.status(200).json({
       success: true,
