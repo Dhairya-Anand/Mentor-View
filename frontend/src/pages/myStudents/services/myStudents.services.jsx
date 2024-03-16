@@ -52,7 +52,7 @@ async function fetchRemoveStudent(studentId){
 async function fetchSaveChanges(studentId,vivaNumber,ideationNumber,executionNumber){
   try {
     const mentorId = "65f29df60b9537db0b574057";
-    const response = await fetch("http://localhost:5000/api/student/marks", {
+    const response = await fetch(API_URL + "student/marks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
