@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import Footer from "../../components/footer";
-import Header from "../../components/header"; // Corrected import
+import Header from "../../components/header";
 import "./home.css";
-
-import { MdPerson } from "react-icons/md";
-import { IoCalendar } from "react-icons/io5"; // Corrected import
 import { FaUserFriends } from "react-icons/fa";
-// import Profile from "../profile/profile";
-// import Friends from "../friends/friends";
 
 function Home() {
-  const [navigation, setNavigation] = useState("profile");
+  const [navigation, setNavigation] = useState("my-students");
 
   // Function to handle navigation
   const handleNavigation = (nav) => {
@@ -22,26 +17,26 @@ function Home() {
       <Header></Header>
       <div className="main">
         <header>
-          <div className="feed-block left">
+        <div className="feed-block left">
             <nav>
               <ul>
                 <li
-                  className={navigation === "friends" ? "active" : ""}
-                  onClick={() => handleNavigation("friends")}
+                  className={navigation === "my-students" ? "active" : ""}
+                  onClick={() => handleNavigation("my-students")}
                 >
-                  <FaUserFriends className="iconStyle" /> Friends
+                  <FaUserFriends className="iconStyle" /> My Students
                 </li>
                 <li
-                  className={navigation === "profile" ? "active" : ""}
-                  onClick={() => handleNavigation("profile")}
+                  className={navigation === "all-students" ? "active" : ""}
+                  onClick={() => handleNavigation("all-students")}
                 >
-                  <MdPerson className="iconStyle" /> Profile
+                  <FaUserFriends className="iconStyle" /> All students
                 </li>
                 <li
-                  className={navigation === "events" ? "active" : ""}
-                  onClick={() => handleNavigation("events")}
+                  className={navigation === "view" ? "active" : ""}
+                  onClick={() => handleNavigation("view")}
                 >
-                  <IoCalendar className="iconStyle" /> Events
+                  <FaUserFriends className="iconStyle" /> View
                 </li>
               </ul>
             </nav>

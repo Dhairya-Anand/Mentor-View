@@ -2,12 +2,6 @@ import React from "react";
 import logo from "../assets/images/logo.png";
 
 function Header() {
-  const logout = () => {
-    localStorage.removeItem("x-auth-token");
-    localStorage.setItem("sideNav","my-students");
-    window.location.href = "/";
-  };
-
   return (
     <div className="header_main">
       <div className="header">
