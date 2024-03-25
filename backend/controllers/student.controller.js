@@ -106,9 +106,43 @@ const fetchMyStudents = async (req, res) => {
   }
 };
 
+const addStudent = async (req, res) => {
+  try {
+    const { name, email, mentorId } = req.body;
+    if (!name || !email || !mentorId) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are neccessary",
+      });
+    }
+    const response = await Student.create({
+      name: name,
+      email: email,
+      mentorID: mentorId,
+    });
+    if (!response) {
+      return res.status(400).json({
+        succes: false,
+        message: "Internal Server error",
+      });
+    }
+    return res.status(502).json({
+      success: true,
+      message: "New student has added",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   fetchMyStudents,
   addMarksOrUpdate,
   fetchStudents,
   fetchAllStudents,
+  addStudent,
 };

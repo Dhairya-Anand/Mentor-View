@@ -8,5 +8,6 @@ router.get("/all",studentController.fetchAllStudents);
 // POST apis
 router.post("/marks", studentController.addMarksOrUpdate);
 router.post("/myStudents", studentController.fetchMyStudents);
+router.post("/addStudent",studentController.addStudent);
 
 module.exports = router;
