@@ -1,10 +1,10 @@
 import toast from "react-hot-toast";
-const API_URL = "http://localhost:5000/api/student";
+const API_URL = "https://mentor-view-hwet.onrender.com/api/";
 
 async function fetchAddNewStudents(name,email){
     try {
         const mentorId = "65f29df60b9537db0b574057";
-        const response = await fetch(API_URL + "/addStudent",{
+        const response = await fetch(API_URL + "student/addStudent",{
             method:"POST",
             headers:{
                 "Content-Type" : "application/json",
