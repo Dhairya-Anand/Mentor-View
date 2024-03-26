@@ -126,7 +126,7 @@ const addStudent = async (req, res) => {
         message: "Internal Server error",
       });
     }
-    return res.status(502).json({
+    return res.status(201).json({
       success: true,
       message: "New student has added",
     });

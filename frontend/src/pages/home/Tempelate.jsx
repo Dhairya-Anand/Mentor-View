@@ -49,6 +49,12 @@ export default function Tempelate({ children }){
                 >
                   <FaUserFriends className="iconStyle" /> View
                 </li>
+                <li
+                  className={navigation === "add-student" ? "active" : ""}
+                  onClick={() => handleNavigation("add-student")}
+                >
+                  <FaUserFriends className="iconStyle" /> Add student
+                </li>
               </ul>
             </nav>
           </div>
